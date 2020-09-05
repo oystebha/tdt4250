@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studyplan:StudyPlan
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:studyplan="platform:/plugin/tdt4250.oving1.model/model/studyplan.ecore"
+    xsi:schemaLocation="platform:/plugin/tdt4250.oving1.model/model/studyplan.ecore studyplan.ecore">
+  <specialization
+      Name="Programvaresystemer"
+      SemesterValue="4">
+    <semesters
+        Name="H20">
+      <courses
+          Name="Avansert Programvaredesign"
+          Code="TDT4250"
+          Level="4"
+          Credit="7.5"/>
+      <courses
+          Name="Informasjonssystemer"
+          Code="TDT4175"
+          Level="3"
+          Credit="7.5"
+          Type="O"/>
+    </semesters>
+  </specialization>
+</studyplan:StudyPlan>

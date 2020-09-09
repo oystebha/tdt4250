@@ -14,8 +14,6 @@
         upperBound="10" eType="#//Semester" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specialization" eType="#//Specialization"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
-        eType="#//Course" containment="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Specialization">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

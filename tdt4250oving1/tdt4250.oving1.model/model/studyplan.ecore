@@ -10,10 +10,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//CourseGroup"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StudyPlan">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" lowerBound="4"
-        upperBound="10" eType="#//Semester" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specialization" lowerBound="1"
-        upperBound="2" eType="#//Specialization" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Programme" eType="#//Programme"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
+        eType="#//Course" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Specialization">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -24,7 +24,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Semester">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
-        eType="#//Course" containment="true"/>
+        eType="#//Course"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CourseGroup">
     <eLiterals name="M2A"/>
@@ -32,5 +32,11 @@
     <eLiterals name="VA" value="2"/>
     <eLiterals name="VB" value="3"/>
     <eLiterals name="O" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Programme">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Specializations" lowerBound="2"
+        upperBound="4" eType="#//Specialization" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" lowerBound="4"
+        upperBound="10" eType="#//Semester" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

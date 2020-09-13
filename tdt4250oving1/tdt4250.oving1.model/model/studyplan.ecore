@@ -38,5 +38,6 @@
         upperBound="4" eType="#//Specialization" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" lowerBound="4"
         upperBound="10" eType="#//Semester" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

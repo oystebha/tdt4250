@@ -5,22 +5,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:studyplan="platform:/plugin/tdt4250.oving1.model/model/studyplan.ecore"
     xsi:schemaLocation="platform:/plugin/tdt4250.oving1.model/model/studyplan.ecore studyplan.ecore">
-  <specialization
-      Name="Programvaresystemer"
-      SemesterValue="4">
+  <Programme
+      Name="MSIT">
+    <Specializations
+        Name="Software Engineering"
+        SemesterValue="4"
+        semesters="//@Programme/@semesters.0"/>
     <semesters
-        Name="H20">
-      <courses
-          Name="Avansert Programvaredesign"
-          Code="TDT4250"
-          Level="4"
-          Credit="7.5"/>
-      <courses
-          Name="Informasjonssystemer"
-          Code="TDT4175"
-          Level="3"
-          Credit="7.5"
-          Type="O"/>
-    </semesters>
-  </specialization>
+        Name="H20"
+        courses="//@courses.0"/>
+  </Programme>
+  <courses Name="Avansert Programvaredesign"
+      Code="TDT4250"
+      Credit="7.5"/>
 </studyplan:StudyPlan>

@@ -19,8 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import tdt4250.studyplan.Course;
-import tdt4250.studyplan.Semester;
-import tdt4250.studyplan.Specialization;
+import tdt4250.studyplan.Programme;
 import tdt4250.studyplan.StudyPlan;
 import tdt4250.studyplan.StudyplanPackage;
 
@@ -32,8 +31,7 @@ import tdt4250.studyplan.StudyplanPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link tdt4250.studyplan.impl.StudyPlanImpl#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link tdt4250.studyplan.impl.StudyPlanImpl#getSpecialization <em>Specialization</em>}</li>
+ *   <li>{@link tdt4250.studyplan.impl.StudyPlanImpl#getProgramme <em>Programme</em>}</li>
  *   <li>{@link tdt4250.studyplan.impl.StudyPlanImpl#getCourses <em>Courses</em>}</li>
  * </ul>
  *
@@ -41,24 +39,14 @@ import tdt4250.studyplan.StudyplanPackage;
  */
 public class StudyPlanImpl extends MinimalEObjectImpl.Container implements StudyPlan {
 	/**
-	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' containment reference list.
+	 * The cached value of the '{@link #getProgramme() <em>Programme</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSemesters()
+	 * @see #getProgramme()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Semester> semesters;
-
-	/**
-	 * The cached value of the '{@link #getSpecialization() <em>Specialization</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSpecialization()
-	 * @generated
-	 * @ordered
-	 */
-	protected Specialization specialization;
+	protected Programme programme;
 
 	/**
 	 * The cached value of the '{@link #getCourses() <em>Courses</em>}' containment reference list.
@@ -94,11 +82,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Semester> getSemesters() {
-		if (semesters == null) {
-			semesters = new EObjectContainmentEList<Semester>(Semester.class, this, StudyplanPackage.STUDY_PLAN__SEMESTERS);
-		}
-		return semesters;
+	public Programme getProgramme() {
+		return programme;
 	}
 
 	/**
@@ -106,20 +91,11 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Specialization getSpecialization() {
-		return specialization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSpecialization(Specialization newSpecialization, NotificationChain msgs) {
-		Specialization oldSpecialization = specialization;
-		specialization = newSpecialization;
+	public NotificationChain basicSetProgramme(Programme newProgramme, NotificationChain msgs) {
+		Programme oldProgramme = programme;
+		programme = newProgramme;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StudyplanPackage.STUDY_PLAN__SPECIALIZATION, oldSpecialization, newSpecialization);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StudyplanPackage.STUDY_PLAN__PROGRAMME, oldProgramme, newProgramme);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -130,18 +106,18 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSpecialization(Specialization newSpecialization) {
-		if (newSpecialization != specialization) {
+	public void setProgramme(Programme newProgramme) {
+		if (newProgramme != programme) {
 			NotificationChain msgs = null;
-			if (specialization != null)
-				msgs = ((InternalEObject)specialization).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StudyplanPackage.STUDY_PLAN__SPECIALIZATION, null, msgs);
-			if (newSpecialization != null)
-				msgs = ((InternalEObject)newSpecialization).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StudyplanPackage.STUDY_PLAN__SPECIALIZATION, null, msgs);
-			msgs = basicSetSpecialization(newSpecialization, msgs);
+			if (programme != null)
+				msgs = ((InternalEObject)programme).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StudyplanPackage.STUDY_PLAN__PROGRAMME, null, msgs);
+			if (newProgramme != null)
+				msgs = ((InternalEObject)newProgramme).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StudyplanPackage.STUDY_PLAN__PROGRAMME, null, msgs);
+			msgs = basicSetProgramme(newProgramme, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StudyplanPackage.STUDY_PLAN__SPECIALIZATION, newSpecialization, newSpecialization));
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyplanPackage.STUDY_PLAN__PROGRAMME, newProgramme, newProgramme));
 	}
 
 	/**
@@ -164,10 +140,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StudyplanPackage.STUDY_PLAN__SEMESTERS:
-				return ((InternalEList<?>)getSemesters()).basicRemove(otherEnd, msgs);
-			case StudyplanPackage.STUDY_PLAN__SPECIALIZATION:
-				return basicSetSpecialization(null, msgs);
+			case StudyplanPackage.STUDY_PLAN__PROGRAMME:
+				return basicSetProgramme(null, msgs);
 			case StudyplanPackage.STUDY_PLAN__COURSES:
 				return ((InternalEList<?>)getCourses()).basicRemove(otherEnd, msgs);
 		}
@@ -182,10 +156,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StudyplanPackage.STUDY_PLAN__SEMESTERS:
-				return getSemesters();
-			case StudyplanPackage.STUDY_PLAN__SPECIALIZATION:
-				return getSpecialization();
+			case StudyplanPackage.STUDY_PLAN__PROGRAMME:
+				return getProgramme();
 			case StudyplanPackage.STUDY_PLAN__COURSES:
 				return getCourses();
 		}
@@ -201,12 +173,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StudyplanPackage.STUDY_PLAN__SEMESTERS:
-				getSemesters().clear();
-				getSemesters().addAll((Collection<? extends Semester>)newValue);
-				return;
-			case StudyplanPackage.STUDY_PLAN__SPECIALIZATION:
-				setSpecialization((Specialization)newValue);
+			case StudyplanPackage.STUDY_PLAN__PROGRAMME:
+				setProgramme((Programme)newValue);
 				return;
 			case StudyplanPackage.STUDY_PLAN__COURSES:
 				getCourses().clear();
@@ -224,11 +192,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StudyplanPackage.STUDY_PLAN__SEMESTERS:
-				getSemesters().clear();
-				return;
-			case StudyplanPackage.STUDY_PLAN__SPECIALIZATION:
-				setSpecialization((Specialization)null);
+			case StudyplanPackage.STUDY_PLAN__PROGRAMME:
+				setProgramme((Programme)null);
 				return;
 			case StudyplanPackage.STUDY_PLAN__COURSES:
 				getCourses().clear();
@@ -245,10 +210,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StudyplanPackage.STUDY_PLAN__SEMESTERS:
-				return semesters != null && !semesters.isEmpty();
-			case StudyplanPackage.STUDY_PLAN__SPECIALIZATION:
-				return specialization != null;
+			case StudyplanPackage.STUDY_PLAN__PROGRAMME:
+				return programme != null;
 			case StudyplanPackage.STUDY_PLAN__COURSES:
 				return courses != null && !courses.isEmpty();
 		}

@@ -141,22 +141,13 @@ public interface StudyplanPackage extends EPackage {
 	int STUDY_PLAN = 1;
 
 	/**
-	 * The feature id for the '<em><b>Semesters</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Programme</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN__SEMESTERS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Specialization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDY_PLAN__SPECIALIZATION = 1;
+	int STUDY_PLAN__PROGRAMME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Courses</b></em>' containment reference list.
@@ -165,7 +156,7 @@ public interface StudyplanPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN__COURSES = 2;
+	int STUDY_PLAN__COURSES = 1;
 
 	/**
 	 * The number of structural features of the '<em>Study Plan</em>' class.
@@ -174,7 +165,7 @@ public interface StudyplanPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN_FEATURE_COUNT = 3;
+	int STUDY_PLAN_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Study Plan</em>' class.
@@ -260,7 +251,7 @@ public interface StudyplanPackage extends EPackage {
 	int SEMESTER__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Courses</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Courses</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -287,6 +278,61 @@ public interface StudyplanPackage extends EPackage {
 	int SEMESTER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link tdt4250.studyplan.impl.ProgrammeImpl <em>Programme</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tdt4250.studyplan.impl.ProgrammeImpl
+	 * @see tdt4250.studyplan.impl.StudyplanPackageImpl#getProgramme()
+	 * @generated
+	 */
+	int PROGRAMME = 4;
+
+	/**
+	 * The feature id for the '<em><b>Specializations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAMME__SPECIALIZATIONS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Semesters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAMME__SEMESTERS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAMME__NAME = 2;
+
+	/**
+	 * The number of structural features of the '<em>Programme</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAMME_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Programme</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAMME_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link tdt4250.studyplan.CourseGroup <em>Course Group</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,7 +340,7 @@ public interface StudyplanPackage extends EPackage {
 	 * @see tdt4250.studyplan.impl.StudyplanPackageImpl#getCourseGroup()
 	 * @generated
 	 */
-	int COURSE_GROUP = 4;
+	int COURSE_GROUP = 5;
 
 
 	/**
@@ -373,26 +419,15 @@ public interface StudyplanPackage extends EPackage {
 	EClass getStudyPlan();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link tdt4250.studyplan.StudyPlan#getSemesters <em>Semesters</em>}'.
+	 * Returns the meta object for the containment reference '{@link tdt4250.studyplan.StudyPlan#getProgramme <em>Programme</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Semesters</em>'.
-	 * @see tdt4250.studyplan.StudyPlan#getSemesters()
+	 * @return the meta object for the containment reference '<em>Programme</em>'.
+	 * @see tdt4250.studyplan.StudyPlan#getProgramme()
 	 * @see #getStudyPlan()
 	 * @generated
 	 */
-	EReference getStudyPlan_Semesters();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link tdt4250.studyplan.StudyPlan#getSpecialization <em>Specialization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Specialization</em>'.
-	 * @see tdt4250.studyplan.StudyPlan#getSpecialization()
-	 * @see #getStudyPlan()
-	 * @generated
-	 */
-	EReference getStudyPlan_Specialization();
+	EReference getStudyPlan_Programme();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link tdt4250.studyplan.StudyPlan#getCourses <em>Courses</em>}'.
@@ -470,15 +505,58 @@ public interface StudyplanPackage extends EPackage {
 	EAttribute getSemester_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link tdt4250.studyplan.Semester#getCourses <em>Courses</em>}'.
+	 * Returns the meta object for the reference list '{@link tdt4250.studyplan.Semester#getCourses <em>Courses</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Courses</em>'.
+	 * @return the meta object for the reference list '<em>Courses</em>'.
 	 * @see tdt4250.studyplan.Semester#getCourses()
 	 * @see #getSemester()
 	 * @generated
 	 */
 	EReference getSemester_Courses();
+
+	/**
+	 * Returns the meta object for class '{@link tdt4250.studyplan.Programme <em>Programme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Programme</em>'.
+	 * @see tdt4250.studyplan.Programme
+	 * @generated
+	 */
+	EClass getProgramme();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link tdt4250.studyplan.Programme#getSpecializations <em>Specializations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Specializations</em>'.
+	 * @see tdt4250.studyplan.Programme#getSpecializations()
+	 * @see #getProgramme()
+	 * @generated
+	 */
+	EReference getProgramme_Specializations();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link tdt4250.studyplan.Programme#getSemesters <em>Semesters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Semesters</em>'.
+	 * @see tdt4250.studyplan.Programme#getSemesters()
+	 * @see #getProgramme()
+	 * @generated
+	 */
+	EReference getProgramme_Semesters();
+
+	/**
+	 * Returns the meta object for the attribute '{@link tdt4250.studyplan.Programme#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see tdt4250.studyplan.Programme#getName()
+	 * @see #getProgramme()
+	 * @generated
+	 */
+	EAttribute getProgramme_Name();
 
 	/**
 	 * Returns the meta object for enum '{@link tdt4250.studyplan.CourseGroup <em>Course Group</em>}'.
@@ -574,20 +652,12 @@ public interface StudyplanPackage extends EPackage {
 		EClass STUDY_PLAN = eINSTANCE.getStudyPlan();
 
 		/**
-		 * The meta object literal for the '<em><b>Semesters</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Programme</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STUDY_PLAN__SEMESTERS = eINSTANCE.getStudyPlan_Semesters();
-
-		/**
-		 * The meta object literal for the '<em><b>Specialization</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference STUDY_PLAN__SPECIALIZATION = eINSTANCE.getStudyPlan_Specialization();
+		EReference STUDY_PLAN__PROGRAMME = eINSTANCE.getStudyPlan_Programme();
 
 		/**
 		 * The meta object literal for the '<em><b>Courses</b></em>' containment reference list feature.
@@ -650,12 +720,46 @@ public interface StudyplanPackage extends EPackage {
 		EAttribute SEMESTER__NAME = eINSTANCE.getSemester_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Courses</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Courses</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SEMESTER__COURSES = eINSTANCE.getSemester_Courses();
+
+		/**
+		 * The meta object literal for the '{@link tdt4250.studyplan.impl.ProgrammeImpl <em>Programme</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tdt4250.studyplan.impl.ProgrammeImpl
+		 * @see tdt4250.studyplan.impl.StudyplanPackageImpl#getProgramme()
+		 * @generated
+		 */
+		EClass PROGRAMME = eINSTANCE.getProgramme();
+
+		/**
+		 * The meta object literal for the '<em><b>Specializations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAMME__SPECIALIZATIONS = eINSTANCE.getProgramme_Specializations();
+
+		/**
+		 * The meta object literal for the '<em><b>Semesters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROGRAMME__SEMESTERS = eINSTANCE.getProgramme_Semesters();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROGRAMME__NAME = eINSTANCE.getProgramme_Name();
 
 		/**
 		 * The meta object literal for the '{@link tdt4250.studyplan.CourseGroup <em>Course Group</em>}' enum.

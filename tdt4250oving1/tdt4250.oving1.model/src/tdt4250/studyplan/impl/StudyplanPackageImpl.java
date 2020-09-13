@@ -8,15 +8,18 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import tdt4250.studyplan.Course;
 import tdt4250.studyplan.CourseGroup;
+import tdt4250.studyplan.Programme;
 import tdt4250.studyplan.Semester;
 import tdt4250.studyplan.Specialization;
 import tdt4250.studyplan.StudyPlan;
 import tdt4250.studyplan.StudyplanFactory;
 import tdt4250.studyplan.StudyplanPackage;
+import tdt4250.studyplan.util.StudyplanValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,6 +55,13 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 	 * @generated
 	 */
 	private EClass semesterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass programmeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,6 +122,15 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 
 		// Initialize created meta-data
 		theStudyplanPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theStudyplanPackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return StudyplanValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theStudyplanPackage.freeze();
@@ -189,7 +208,7 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStudyPlan_Semesters() {
+	public EReference getStudyPlan_Programme() {
 		return (EReference)studyPlanEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -198,17 +217,8 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStudyPlan_Specialization() {
-		return (EReference)studyPlanEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getStudyPlan_Courses() {
-		return (EReference)studyPlanEClass.getEStructuralFeatures().get(2);
+		return (EReference)studyPlanEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -279,6 +289,42 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProgramme() {
+		return programmeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProgramme_Specializations() {
+		return (EReference)programmeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProgramme_Semesters() {
+		return (EReference)programmeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProgramme_Name() {
+		return (EAttribute)programmeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getCourseGroup() {
 		return courseGroupEEnum;
 	}
@@ -319,8 +365,7 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 		createEAttribute(courseEClass, COURSE__TYPE);
 
 		studyPlanEClass = createEClass(STUDY_PLAN);
-		createEReference(studyPlanEClass, STUDY_PLAN__SEMESTERS);
-		createEReference(studyPlanEClass, STUDY_PLAN__SPECIALIZATION);
+		createEReference(studyPlanEClass, STUDY_PLAN__PROGRAMME);
 		createEReference(studyPlanEClass, STUDY_PLAN__COURSES);
 
 		specializationEClass = createEClass(SPECIALIZATION);
@@ -331,6 +376,11 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 		semesterEClass = createEClass(SEMESTER);
 		createEAttribute(semesterEClass, SEMESTER__NAME);
 		createEReference(semesterEClass, SEMESTER__COURSES);
+
+		programmeEClass = createEClass(PROGRAMME);
+		createEReference(programmeEClass, PROGRAMME__SPECIALIZATIONS);
+		createEReference(programmeEClass, PROGRAMME__SEMESTERS);
+		createEAttribute(programmeEClass, PROGRAMME__NAME);
 
 		// Create enums
 		courseGroupEEnum = createEEnum(COURSE_GROUP);
@@ -374,8 +424,7 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 		initEAttribute(getCourse_Type(), this.getCourseGroup(), "Type", null, 0, 1, Course.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(studyPlanEClass, StudyPlan.class, "StudyPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStudyPlan_Semesters(), this.getSemester(), null, "semesters", null, 4, 10, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStudyPlan_Specialization(), this.getSpecialization(), null, "specialization", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStudyPlan_Programme(), this.getProgramme(), null, "Programme", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStudyPlan_Courses(), this.getCourse(), null, "courses", null, 0, -1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specializationEClass, Specialization.class, "Specialization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -385,7 +434,12 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 
 		initEClass(semesterEClass, Semester.class, "Semester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemester_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSemester_Courses(), this.getCourse(), null, "courses", null, 0, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSemester_Courses(), this.getCourse(), null, "courses", null, 0, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(programmeEClass, Programme.class, "Programme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProgramme_Specializations(), this.getSpecialization(), null, "Specializations", null, 2, 4, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgramme_Semesters(), this.getSemester(), null, "semesters", null, 4, 10, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgramme_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(courseGroupEEnum, CourseGroup.class, "CourseGroup");
@@ -397,6 +451,26 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (semesterEClass,
+		   source,
+		   new String[] {
+			   "constraints", "hasEnoughCredits"
+		   });
 	}
 
 } //StudyplanPackageImpl

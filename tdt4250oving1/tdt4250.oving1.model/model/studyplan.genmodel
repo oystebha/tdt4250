@@ -22,8 +22,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplan.ecore#//Course/Type"/>
     </genClasses>
     <genClasses ecoreClass="studyplan.ecore#//StudyPlan">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//StudyPlan/semesters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//StudyPlan/specialization"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//StudyPlan/Programme"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//StudyPlan/courses"/>
     </genClasses>
     <genClasses ecoreClass="studyplan.ecore#//Specialization">
@@ -34,6 +33,11 @@
     <genClasses ecoreClass="studyplan.ecore#//Semester">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplan.ecore#//Semester/Name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//Semester/courses"/>
+    </genClasses>
+    <genClasses ecoreClass="studyplan.ecore#//Programme">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//Programme/Specializations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//Programme/semesters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplan.ecore#//Programme/Name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -84,6 +84,10 @@ public class StudyplanAdapterFactory extends AdapterFactoryImpl {
 				return createSemesterAdapter();
 			}
 			@Override
+			public Adapter caseProgramme(Programme object) {
+				return createProgrammeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -156,6 +160,20 @@ public class StudyplanAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSemesterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link tdt4250.studyplan.Programme <em>Programme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see tdt4250.studyplan.Programme
+	 * @generated
+	 */
+	public Adapter createProgrammeAdapter() {
 		return null;
 	}
 

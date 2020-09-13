@@ -5,18 +5,15 @@ package tdt4250.studyplan.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import tdt4250.studyplan.Course;
 import tdt4250.studyplan.Semester;
@@ -58,7 +55,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCourses() <em>Courses</em>}' containment reference list.
+	 * The cached value of the '{@link #getCourses() <em>Courses</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCourses()
@@ -114,23 +111,9 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 */
 	public EList<Course> getCourses() {
 		if (courses == null) {
-			courses = new EObjectContainmentEList<Course>(Course.class, this, StudyplanPackage.SEMESTER__COURSES);
+			courses = new EObjectResolvingEList<Course>(Course.class, this, StudyplanPackage.SEMESTER__COURSES);
 		}
 		return courses;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case StudyplanPackage.SEMESTER__COURSES:
-				return ((InternalEList<?>)getCourses()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

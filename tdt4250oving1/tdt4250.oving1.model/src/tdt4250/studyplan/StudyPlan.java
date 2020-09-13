@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link tdt4250.studyplan.StudyPlan#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link tdt4250.studyplan.StudyPlan#getSpecialization <em>Specialization</em>}</li>
+ *   <li>{@link tdt4250.studyplan.StudyPlan#getProgramme <em>Programme</em>}</li>
  *   <li>{@link tdt4250.studyplan.StudyPlan#getCourses <em>Courses</em>}</li>
  * </ul>
  *
@@ -26,38 +25,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface StudyPlan extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Semesters</b></em>' containment reference list.
-	 * The list contents are of type {@link tdt4250.studyplan.Semester}.
+	 * Returns the value of the '<em><b>Programme</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Semesters</em>' containment reference list.
-	 * @see tdt4250.studyplan.StudyplanPackage#getStudyPlan_Semesters()
-	 * @model containment="true" lower="4" upper="10"
-	 * @generated
-	 */
-	EList<Semester> getSemesters();
-
-	/**
-	 * Returns the value of the '<em><b>Specialization</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specialization</em>' containment reference.
-	 * @see #setSpecialization(Specialization)
-	 * @see tdt4250.studyplan.StudyplanPackage#getStudyPlan_Specialization()
+	 * @return the value of the '<em>Programme</em>' containment reference.
+	 * @see #setProgramme(Programme)
+	 * @see tdt4250.studyplan.StudyplanPackage#getStudyPlan_Programme()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Specialization getSpecialization();
+	Programme getProgramme();
 
 	/**
-	 * Sets the value of the '{@link tdt4250.studyplan.StudyPlan#getSpecialization <em>Specialization</em>}' containment reference.
+	 * Sets the value of the '{@link tdt4250.studyplan.StudyPlan#getProgramme <em>Programme</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specialization</em>' containment reference.
-	 * @see #getSpecialization()
+	 * @param value the new value of the '<em>Programme</em>' containment reference.
+	 * @see #getProgramme()
 	 * @generated
 	 */
-	void setSpecialization(Specialization value);
+	void setProgramme(Programme value);
 
 	/**
 	 * Returns the value of the '<em><b>Courses</b></em>' containment reference list.

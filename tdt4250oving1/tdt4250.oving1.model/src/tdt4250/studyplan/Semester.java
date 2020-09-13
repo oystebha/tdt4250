@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see tdt4250.studyplan.StudyplanPackage#getSemester()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='hasEnoughCredits'"
  * @generated
  */
 public interface Semester extends EObject {
@@ -47,13 +47,13 @@ public interface Semester extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Courses</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Courses</b></em>' reference list.
 	 * The list contents are of type {@link tdt4250.studyplan.Course}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Courses</em>' containment reference list.
+	 * @return the value of the '<em>Courses</em>' reference list.
 	 * @see tdt4250.studyplan.StudyplanPackage#getSemester_Courses()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Course> getCourses();

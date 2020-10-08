@@ -5,6 +5,7 @@ package tdt4250.studyplan;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -315,13 +316,31 @@ public interface StudyplanPackage extends EPackage {
 	int PROGRAMME__NAME = 2;
 
 	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAMME__DURATION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Programme</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAMME_FEATURE_COUNT = 3;
+	int PROGRAMME_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Get Credits</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAMME___GET_CREDITS = 0;
 
 	/**
 	 * The number of operations of the '<em>Programme</em>' class.
@@ -330,7 +349,7 @@ public interface StudyplanPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAMME_OPERATION_COUNT = 0;
+	int PROGRAMME_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link tdt4250.studyplan.CourseGroup <em>Course Group</em>}' enum.
@@ -341,6 +360,17 @@ public interface StudyplanPackage extends EPackage {
 	 * @generated
 	 */
 	int COURSE_GROUP = 5;
+
+
+	/**
+	 * The meta object id for the '{@link tdt4250.studyplan.Level <em>Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see tdt4250.studyplan.Level
+	 * @see tdt4250.studyplan.impl.StudyplanPackageImpl#getLevel()
+	 * @generated
+	 */
+	int LEVEL = 6;
 
 
 	/**
@@ -559,6 +589,27 @@ public interface StudyplanPackage extends EPackage {
 	EAttribute getProgramme_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link tdt4250.studyplan.Programme#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see tdt4250.studyplan.Programme#getDuration()
+	 * @see #getProgramme()
+	 * @generated
+	 */
+	EAttribute getProgramme_Duration();
+
+	/**
+	 * Returns the meta object for the '{@link tdt4250.studyplan.Programme#getCredits() <em>Get Credits</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Credits</em>' operation.
+	 * @see tdt4250.studyplan.Programme#getCredits()
+	 * @generated
+	 */
+	EOperation getProgramme__GetCredits();
+
+	/**
 	 * Returns the meta object for enum '{@link tdt4250.studyplan.CourseGroup <em>Course Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -567,6 +618,16 @@ public interface StudyplanPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getCourseGroup();
+
+	/**
+	 * Returns the meta object for enum '{@link tdt4250.studyplan.Level <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Level</em>'.
+	 * @see tdt4250.studyplan.Level
+	 * @generated
+	 */
+	EEnum getLevel();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -762,6 +823,22 @@ public interface StudyplanPackage extends EPackage {
 		EAttribute PROGRAMME__NAME = eINSTANCE.getProgramme_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROGRAMME__DURATION = eINSTANCE.getProgramme_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Credits</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROGRAMME___GET_CREDITS = eINSTANCE.getProgramme__GetCredits();
+
+		/**
 		 * The meta object literal for the '{@link tdt4250.studyplan.CourseGroup <em>Course Group</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -770,6 +847,16 @@ public interface StudyplanPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COURSE_GROUP = eINSTANCE.getCourseGroup();
+
+		/**
+		 * The meta object literal for the '{@link tdt4250.studyplan.Level <em>Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see tdt4250.studyplan.Level
+		 * @see tdt4250.studyplan.impl.StudyplanPackageImpl#getLevel()
+		 * @generated
+		 */
+		EEnum LEVEL = eINSTANCE.getLevel();
 
 	}
 

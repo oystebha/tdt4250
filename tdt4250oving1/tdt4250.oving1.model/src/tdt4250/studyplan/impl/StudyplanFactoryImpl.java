@@ -77,6 +77,8 @@ public class StudyplanFactoryImpl extends EFactoryImpl implements StudyplanFacto
 		switch (eDataType.getClassifierID()) {
 			case StudyplanPackage.COURSE_GROUP:
 				return createCourseGroupFromString(eDataType, initialValue);
+			case StudyplanPackage.LEVEL:
+				return createLevelFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +94,8 @@ public class StudyplanFactoryImpl extends EFactoryImpl implements StudyplanFacto
 		switch (eDataType.getClassifierID()) {
 			case StudyplanPackage.COURSE_GROUP:
 				return convertCourseGroupToString(eDataType, instanceValue);
+			case StudyplanPackage.LEVEL:
+				return convertLevelToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -164,6 +168,26 @@ public class StudyplanFactoryImpl extends EFactoryImpl implements StudyplanFacto
 	 * @generated
 	 */
 	public String convertCourseGroupToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Level createLevelFromString(EDataType eDataType, String initialValue) {
+		Level result = Level.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLevelToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -18,10 +18,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link tdt4250.studyplan.Programme#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link tdt4250.studyplan.Programme#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link tdt4250.studyplan.Programme#getName <em>Name</em>}</li>
+ *   <li>{@link tdt4250.studyplan.Programme#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @see tdt4250.studyplan.StudyplanPackage#getProgramme()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='studyPlanHasEnoughCreditsAccordingToDuration'"
  * @generated
  */
 public interface Programme extends EObject {
@@ -70,5 +71,38 @@ public interface Programme extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Duration</b></em>' attribute.
+	 * The literals are from the enumeration {@link tdt4250.studyplan.Level}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Duration</em>' attribute.
+	 * @see tdt4250.studyplan.Level
+	 * @see #setDuration(Level)
+	 * @see tdt4250.studyplan.StudyplanPackage#getProgramme_Duration()
+	 * @model
+	 * @generated
+	 */
+	Level getDuration();
+
+	/**
+	 * Sets the value of the '{@link tdt4250.studyplan.Programme#getDuration <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Duration</em>' attribute.
+	 * @see tdt4250.studyplan.Level
+	 * @see #getDuration()
+	 * @generated
+	 */
+	void setDuration(Level value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	float getCredits();
 
 } // Programme

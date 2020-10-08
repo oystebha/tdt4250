@@ -14,11 +14,6 @@
       <genEnumLiterals ecoreEnumLiteral="studyplan.ecore#//CourseGroup/VB"/>
       <genEnumLiterals ecoreEnumLiteral="studyplan.ecore#//CourseGroup/O"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="studyplan.ecore#//Level">
-      <genEnumLiterals ecoreEnumLiteral="studyplan.ecore#//Level/Bachelor"/>
-      <genEnumLiterals ecoreEnumLiteral="studyplan.ecore#//Level/Master"/>
-      <genEnumLiterals ecoreEnumLiteral="studyplan.ecore#//Level/IntegratedMaster"/>
-    </genEnums>
     <genClasses ecoreClass="studyplan.ecore#//Course">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplan.ecore#//Course/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplan.ecore#//Course/Code"/>
@@ -43,8 +38,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//Programme/Specializations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference studyplan.ecore#//Programme/semesters"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplan.ecore#//Programme/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute studyplan.ecore#//Programme/Duration"/>
-      <genOperations ecoreOperation="studyplan.ecore#//Programme/getCredits"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

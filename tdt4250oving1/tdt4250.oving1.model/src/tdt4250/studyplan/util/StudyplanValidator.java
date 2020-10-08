@@ -2,7 +2,7 @@
  */
 package tdt4250.studyplan.util;
 
-import java.util.Map;
+import java.util.Map; 
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -98,6 +98,8 @@ public class StudyplanValidator extends EObjectValidator {
 				return validateProgramme((Programme)value, diagnostics, context);
 			case StudyplanPackage.COURSE_GROUP:
 				return validateCourseGroup((CourseGroup)value, diagnostics, context);
+			case StudyplanPackage.LEVEL:
+				return validateLevel((Level)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -187,7 +189,45 @@ public class StudyplanValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateProgramme(Programme programme, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(programme, diagnostics, context);
+		if (!validate_NoCircularContainment(programme, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(programme, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(programme, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(programme, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(programme, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(programme, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(programme, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(programme, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(programme, diagnostics, context);
+		if (result || diagnostics != null) result &= validateProgramme_studyPlanHasEnoughCreditsAccordingToDuration(programme, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the studyPlanHasEnoughCreditsAccordingToDuration constraint of '<em>Programme</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateProgramme_studyPlanHasEnoughCreditsAccordingToDuration(Programme programme, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(createDiagnostic
+						(Diagnostic.ERROR,
+						 DIAGNOSTIC_SOURCE,
+						 0,
+						 "_UI_GenericConstraint_diagnostic",
+						 new Object[] { "studyPlanHasEnoughCreditsAccordingToDuration", getObjectLabel(programme, context) },
+						 new Object[] { programme },
+						 context));
+			}
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -196,6 +236,15 @@ public class StudyplanValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateCourseGroup(CourseGroup courseGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateLevel(Level level, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

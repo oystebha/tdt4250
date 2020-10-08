@@ -5,6 +5,7 @@ package tdt4250.studyplan.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import tdt4250.studyplan.Course;
 import tdt4250.studyplan.CourseGroup;
+import tdt4250.studyplan.Level;
 import tdt4250.studyplan.Programme;
 import tdt4250.studyplan.Semester;
 import tdt4250.studyplan.Specialization;
@@ -69,6 +71,13 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 	 * @generated
 	 */
 	private EEnum courseGroupEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum levelEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -325,8 +334,35 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getProgramme_Duration() {
+		return (EAttribute)programmeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getProgramme__GetCredits() {
+		return programmeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getCourseGroup() {
 		return courseGroupEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLevel() {
+		return levelEEnum;
 	}
 
 	/**
@@ -381,9 +417,12 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 		createEReference(programmeEClass, PROGRAMME__SPECIALIZATIONS);
 		createEReference(programmeEClass, PROGRAMME__SEMESTERS);
 		createEAttribute(programmeEClass, PROGRAMME__NAME);
+		createEAttribute(programmeEClass, PROGRAMME__DURATION);
+		createEOperation(programmeEClass, PROGRAMME___GET_CREDITS);
 
 		// Create enums
 		courseGroupEEnum = createEEnum(COURSE_GROUP);
+		levelEEnum = createEEnum(LEVEL);
 	}
 
 	/**
@@ -440,6 +479,9 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 		initEReference(getProgramme_Specializations(), this.getSpecialization(), null, "Specializations", null, 2, 4, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramme_Semesters(), this.getSemester(), null, "semesters", null, 4, 10, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgramme_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgramme_Duration(), this.getLevel(), "Duration", null, 0, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getProgramme__GetCredits(), ecorePackage.getEFloat(), "getCredits", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(courseGroupEEnum, CourseGroup.class, "CourseGroup");
@@ -448,6 +490,11 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 		addEEnumLiteral(courseGroupEEnum, CourseGroup.VA);
 		addEEnumLiteral(courseGroupEEnum, CourseGroup.VB);
 		addEEnumLiteral(courseGroupEEnum, CourseGroup.O);
+
+		initEEnum(levelEEnum, Level.class, "Level");
+		addEEnumLiteral(levelEEnum, Level.BACHELOR);
+		addEEnumLiteral(levelEEnum, Level.MASTER);
+		addEEnumLiteral(levelEEnum, Level.INTEGRATED_MASTER);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -470,6 +517,12 @@ public class StudyplanPackageImpl extends EPackageImpl implements StudyplanPacka
 		   source,
 		   new String[] {
 			   "constraints", "hasEnoughCredits"
+		   });
+		addAnnotation
+		  (programmeEClass,
+		   source,
+		   new String[] {
+			   "constraints", "studyPlanHasEnoughCreditsAccordingToDuration"
 		   });
 	}
 

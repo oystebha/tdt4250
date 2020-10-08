@@ -2,6 +2,7 @@
  */
 package tdt4250.studyplan.impl;
 
+import java.lang.reflect.InvocationTargetException; 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,6 +19,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import tdt4250.studyplan.Course;
+import tdt4250.studyplan.Level;
 import tdt4250.studyplan.Programme;
 import tdt4250.studyplan.Semester;
 import tdt4250.studyplan.Specialization;
@@ -34,6 +37,7 @@ import tdt4250.studyplan.StudyplanPackage;
  *   <li>{@link tdt4250.studyplan.impl.ProgrammeImpl#getSpecializations <em>Specializations</em>}</li>
  *   <li>{@link tdt4250.studyplan.impl.ProgrammeImpl#getSemesters <em>Semesters</em>}</li>
  *   <li>{@link tdt4250.studyplan.impl.ProgrammeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link tdt4250.studyplan.impl.ProgrammeImpl#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +82,26 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Level DURATION_EDEFAULT = Level.BACHELOR;
+
+	/**
+	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected Level duration = DURATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +172,44 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Level getDuration() {
+		return duration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDuration(Level newDuration) {
+		Level oldDuration = duration;
+		duration = newDuration == null ? DURATION_EDEFAULT : newDuration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StudyplanPackage.PROGRAMME__DURATION, oldDuration, duration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public float getCredits() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		float credits  = 0f;
+		
+		for (Course c: ((Semester) this.getSemesters()).getCourses()) {
+			credits += c.getCredit();
+			
+		}
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -173,6 +235,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return getSemesters();
 			case StudyplanPackage.PROGRAMME__NAME:
 				return getName();
+			case StudyplanPackage.PROGRAMME__DURATION:
+				return getDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,6 +261,9 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case StudyplanPackage.PROGRAMME__NAME:
 				setName((String)newValue);
 				return;
+			case StudyplanPackage.PROGRAMME__DURATION:
+				setDuration((Level)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -218,6 +285,9 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case StudyplanPackage.PROGRAMME__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case StudyplanPackage.PROGRAMME__DURATION:
+				setDuration(DURATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -236,8 +306,24 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return semesters != null && !semesters.isEmpty();
 			case StudyplanPackage.PROGRAMME__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case StudyplanPackage.PROGRAMME__DURATION:
+				return duration != DURATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case StudyplanPackage.PROGRAMME___GET_CREDITS:
+				return getCredits();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -252,6 +338,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
+		result.append(", Duration: ");
+		result.append(duration);
 		result.append(')');
 		return result.toString();
 	}

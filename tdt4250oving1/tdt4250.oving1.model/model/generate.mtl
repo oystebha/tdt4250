@@ -1,0 +1,7 @@
+[comment encoding = UTF-8 /]
+[module generate('http://org/eclipse/emf/ecp/view/custom/model')]
+
+
+[template public generateElement(aCustomControl : CustomControl)]
+
+[/template]

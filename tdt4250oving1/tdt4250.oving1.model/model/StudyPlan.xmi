@@ -4,7 +4,8 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:studyplan="platform:/plugin/tdt4250.oving1.model/model/studyplan.ecore"
-    xsi:schemaLocation="platform:/plugin/tdt4250.oving1.model/model/studyplan.ecore studyplan.ecore">
+    xsi:schemaLocation="platform:/plugin/tdt4250.oving1.model/model/studyplan.ecore studyplan.ecore"
+    name="MyStudyPlan">
   <Programme
       Name="MSIT">
     <Specializations

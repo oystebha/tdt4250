@@ -1,0 +1,16 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/emf/2002/Ecore', 'platform:/plugin/tdt4250.oving1.model/model/studyplan.ecore')]
+
+
+[template public generateElement(aStudyPlan : StudyPlan)]
+[comment @main/]
+[file (aStudyPlan.name + '.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+<body>
+	<p>aStudyPlan.name</p>
+</body>
+</html>
+
+[/file]
+[/template]

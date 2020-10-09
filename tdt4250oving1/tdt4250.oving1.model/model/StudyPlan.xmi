@@ -11,12 +11,76 @@
     <Specializations
         Name="Software Engineering"
         SemesterValue="4"
-        semesters="//@Programme/@semesters.0"/>
+        semesters="//@Programme/@semesters.0 //@Programme/@semesters.1 //@Programme/@semesters.2 //@Programme/@semesters.3"/>
     <semesters
         Name="H20"
-        courses="//@courses.0"/>
+        courses="//@courses.0 //@courses.1 //@courses.2 //@courses.3"/>
+    <semesters
+        Name="V21"
+        courses="//@courses.4 //@courses.5 //@courses.6 //@courses.7"/>
+    <semesters
+        Name="H21"
+        courses="//@courses.8 //@courses.9 //@courses.10"/>
+    <semesters
+        Name="V22"
+        courses="//@courses.11"/>
   </Programme>
   <courses Name="Avansert Programvaredesign"
       Code="TDT4250"
+      Level="4"
       Credit="7.5"/>
+  <courses Name="Innovation by Design Thinking"
+      Code="TMM4220"
+      Level="4"
+      Credit="7.5"
+      Type="VA"/>
+  <courses Name="Informasjonssystemer"
+      Code="TDT4176"
+      Level="4"
+      Credit="7.5"
+      Type="O"/>
+  <courses Name="Applied Data Science"
+      Code="TDT4259"
+      Level="4"
+      Credit="7.5"/>
+  <courses Name="Software Architecture"
+      Code="TDT4240"
+      Level="3"
+      Credit="7.5"
+      Type="O"/>
+  <courses Name="Empirical research methodologies in IT and digitalization"
+      Code="IT3010"
+      Level="4"
+      Credit="7.5"
+      Type="O"/>
+  <courses Name="Matematikk 3"
+      Code="TMA4115"
+      Level="1"
+      Credit="7.5"
+      Type="VA"/>
+  <courses Name="Ekspertar i team - Ocean Justice"
+      Code="AAR4923"
+      Level="4"
+      Credit="7.5"
+      Type="VA"/>
+  <courses Name="Master in Informatics, Preparatory Project"
+      Code="IT3915"
+      Level="4"
+      Credit="15.0"
+      Type="O"/>
+  <courses Name="Grunnleggende visuell databehandling"
+      Code="TDT4195"
+      Level="3"
+      Credit="7.5"
+      Type="VA"/>
+  <courses Name="Game+"
+      Code="IT3021"
+      Level="4"
+      Credit="7.5"
+      Type="VA"/>
+  <courses Name="Master Thesis for MSIT"
+      Code="IT3920"
+      Level="4"
+      Credit="30.0"
+      Type="O"/>
 </studyplan:StudyPlan>

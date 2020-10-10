@@ -345,10 +345,6 @@ public class Generate extends AbstractAcceleoGenerator {
         if (!isInWorkspace(org.eclipse.emf.ecore.EcorePackage.class)) {
             resourceSet.getPackageRegistry().put(org.eclipse.emf.ecore.EcorePackage.eINSTANCE.getNsURI(), org.eclipse.emf.ecore.EcorePackage.eINSTANCE);
         }
-        if (!isInWorkspace(StudyplanPackage.class)) {
-            // The normal package registration if your metamodel is in a plugin.
-                 resourceSet.getPackageRegistry().put(StudyplanPackage.eNS_URI, StudyplanPackage.eINSTANCE);
-           }
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

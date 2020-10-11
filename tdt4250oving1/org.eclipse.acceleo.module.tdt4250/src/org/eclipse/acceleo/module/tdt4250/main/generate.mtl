@@ -6,30 +6,39 @@
 [comment @main/]
 [file (aStudyPlan.name + '.html', false, 'UTF-8')]
 <html>
-
 <head>
 	<title>[aStudyPlan.name/]</title>
 	<meta charset="utf-8"/>
 </head>
-
 <body>
 	[for (programme : Programme | aStudyPlan.programme)]
-		<h1>[programme.name/]</h1>
+	<h1>[programme.name/]</h1>
 	[/for]
-		[for (specialization : Specialization | programme.specializations)]
-			<h2>[specialization.name/]</h2>
-		[/for]
-			[for (semester : Semester | programme.semesters)]
-				<div>
-				<h3>[semester.name/]</h3>
-				[for (course : Course | semester.courses)]
-					<li>[course.name/]<li/>
-				[/for]
-				</div>
+	[for (specialization : Specialization | programme.specializations)]
+	<h2>[specialization.name/]</h2>
+	[/for]
+	[for (semester : Semester | programme.semesters)]
+	<div>
+		<h3>[semester.name/]</h3>
+		<table>
+			<tr>
+				<th>Code</th>
+				<th>Name</th>
+				<th>SP</th>
+				<th>Status</th>
+			</tr>
+			[for (course : Course | semester.courses)]
+			<tr>
+				<td>[course.code/]</td>
+				<td>[course.name/]</td>
+				<td>[course.credit/]</td>
+				<td>[course.type/]</td>
+			</tr>
 			[/for]
-
+		</table>
+	</div>
+	[/for]
 </body>
 </html>
-
 [/file]
 [/template]
